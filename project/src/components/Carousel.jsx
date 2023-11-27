@@ -70,3 +70,6 @@ const Carousel = ({ data }) => {
 };
 
 export default Carousel;
+
+// https://www.nifafinearts.com/images/gplay.png
+// https://www.nifafinearts.com/images/appstore.png

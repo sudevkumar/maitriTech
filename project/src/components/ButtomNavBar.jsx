@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { FaPhoneAlt } from "react-icons/fa";
 import { HiMiniArrowSmallDown } from "react-icons/hi2";
 import { HiMiniArrowSmallUp } from "react-icons/hi2";
+import { IoMdMail } from "react-icons/io";
 
 const ButtomNavBar = () => {
   const [text, setText] = useState("Home");
@@ -48,12 +50,21 @@ const ButtomNavBar = () => {
   ];
 
   return (
-    <nav className="w-[80%] flex m-auto justify-between items-center flex-col lg:flex-row relative">
+    <nav className="w-[80%] flex m-auto justify-between items-center flex-col lg:flex-row relative z-50">
       <img
         src="https://www.nifafinearts.com/images/nifa-new-logo.png"
         alt=""
         className="h-16"
       />
+      <div className="flex w-1/2 lg:w-fit justify-center items-center text-blue-950 lg:hidden">
+        <IoMdMail />
+        <span className="ml-2">admission@nifafinearts.com</span>
+      </div>
+
+      <div className="flex w-1/2 lg:w-fit justify-center items-center text-blue-950 lg:hidden">
+        <FaPhoneAlt />
+        <span className="ml-2">+91 9555112200/9810130552</span>
+      </div>
 
       <div
         className="w-[100%] p-1 px-2 rounded-3xl text-white bg-blue-950  lg:hidden flex justify-between items-center"
