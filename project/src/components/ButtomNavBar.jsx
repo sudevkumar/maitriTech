@@ -7,6 +7,10 @@ import { IoMdMail } from "react-icons/io";
 const ButtomNavBar = () => {
   const [text, setText] = useState("Home");
   const [open, setOpen] = useState(false);
+  const [openAbout, setOpenAbout] = useState(false);
+  const [openCourse, setOpenCourse] = useState(false);
+  const [openActivities, setOpenActivities] = useState(false);
+  const [openArt, setOpenArt] = useState(false);
 
   const openModal = () => {
     setOpen(!open);
@@ -49,6 +53,34 @@ const ButtomNavBar = () => {
     "-Exhibitions",
   ];
 
+  const handleMouseOverAbout = (e) => {
+    setOpenAbout(true);
+    setOpenCourse(false);
+    setOpenActivities(false);
+    setOpenArt(false);
+  };
+
+  const handleMouseOverCourse = () => {
+    setOpenAbout(false);
+    setOpenCourse(true);
+    setOpenActivities(false);
+    setOpenArt(false);
+  };
+
+  const handleMouseOverActivities = () => {
+    setOpenAbout(false);
+    setOpenCourse(false);
+    setOpenActivities(true);
+    setOpenArt(false);
+  };
+
+  const handleMouseOverArt = () => {
+    setOpenAbout(false);
+    setOpenCourse(false);
+    setOpenActivities(false);
+    setOpenArt(true);
+  };
+
   return (
     <nav className="w-[80%] flex m-auto justify-between items-center flex-col lg:flex-row relative z-50">
       <img
@@ -87,27 +119,217 @@ const ButtomNavBar = () => {
         </div>
       )}
 
-      <li className="list-none font-light text-sm hidden lg:block">Home</li>
-      <li className="list-none font-light text-sm hidden lg:block">About</li>
-      <li className="list-none font-light text-sm hidden lg:block">Courses</li>
-      <li className="list-none font-light text-sm hidden lg:block">
-        Activities
-      </li>
-      <li className="list-none font-light text-sm hidden lg:block">
-        Admission
-      </li>
-      <li className="list-none font-light text-sm hidden lg:block">
-        Art Gallery
-      </li>
-      <li className="list-none font-light text-sm hidden lg:block">
-        Franchise
-      </li>
-      <li className="list-none font-light text-sm hidden lg:block">
-        Online Classes
-      </li>
-      <li className="list-none font-light text-sm hidden lg:block">Videos</li>
-      <li className="list-none font-light text-sm hidden lg:block">Pay Fee</li>
-      <li className="list-none font-light text-sm hidden lg:block">Contact</li>
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light  text-sm hidden lg:block cursor-pointer">
+          Home
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li
+          className="list-none font-light  text-sm hidden lg:block"
+          onMouseOver={handleMouseOverAbout}
+        >
+          About
+        </li>
+
+        {openAbout && (
+          <div
+            className="absolute w-[15%] h-auto bg-gray-100 mt-3"
+            onMouseOver={handleMouseOverAbout}
+            onMouseLeave={() => setOpenAbout(false)}
+          >
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Facilities
+            </li>
+          </div>
+        )}
+      </div>
+
+      <div
+        className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500"
+        onMouseOver={handleMouseOverCourse}
+      >
+        <li className="list-none font-ligh text-sm hidden lg:block">Courses</li>
+
+        {openCourse && (
+          <div
+            className="absolute w-[15%] h-auto bg-gray-100 mt-3 "
+            onMouseOver={handleMouseOverCourse}
+            onMouseLeave={() => setOpenCourse(false)}
+          >
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              B.F.A from UGC Recognised University
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              M.A from UGC Recognised University
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Two years Advance Diploma in Fine Art
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              One years Advance Diploma in Fine Art
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              6 months Advance Diploma in Fine Art
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Entrance Preparation for F.I.D
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Entrance Preparation for N.I.D
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Entrance Preparation for NIFT
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Animation Sketching
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Entrance Preparation for B.F.A
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              1 to 3 months Certifcate Hobby Course
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Kids Diploma(L-2)
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Kids Diploma(L-1)
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Hobby Certificate Course For Kids
+            </li>
+          </div>
+        )}
+      </div>
+
+      <div
+        className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500"
+        onMouseOver={handleMouseOverActivities}
+      >
+        <li className="list-none font-light text-sm hidden lg:block">
+          Activities
+        </li>
+
+        {openActivities && (
+          <div
+            className="absolute w-[15%] h-auto bg-gray-100 mt-3 "
+            onMouseOver={handleMouseOverActivities}
+            onMouseLeave={() => setOpenActivities(false)}
+          >
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Workshops
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Outdoor
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              National Art Seminar & Award Show, 2018
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Medical Coverage
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Judging Art Events
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Exibitions
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Daily Activities
+            </li>
+          </div>
+        )}
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light  text-sm hidden lg:block">
+          Admission
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li
+          className="list-none font-light  text-sm hidden lg:block"
+          onMouseOver={handleMouseOverArt}
+        >
+          Art Gallery
+        </li>
+
+        {openArt && (
+          <div
+            className="absolute w-[15%] h-auto bg-gray-100 mt-3"
+            onMouseOver={handleMouseOverArt}
+            onMouseLeave={() => setOpenArt(false)}
+          >
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Work by Kids Level-2
+            </li>
+            <hr className=" border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Work by Kids Level-1
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Sketching
+            </li>
+            <hr className="border-gray-500" />
+            <li className="list-none font-light  hover:bg-pink-500 p-2 hover:text-white duration-300">
+              Painting done by Students Of Level-3
+            </li>
+          </div>
+        )}
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light text-sm hidden lg:block">
+          Franchise
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light text-sm hidden lg:block">
+          Online Classes
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light  text-sm hidden lg:block">
+          Videos
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light text-sm hidden lg:block">
+          Pay Fee
+        </li>
+      </div>
+
+      <div className="p-2 cursor-pointer hover:border-t-2 hover:border-b-2 hover:border-b-pink-500 hover:border-t-pink-500">
+        <li className="list-none font-light  text-sm hidden lg:block">
+          Contact
+        </li>
+      </div>
     </nav>
   );
 };
